@@ -16,6 +16,9 @@
   <component name="ComposerSettings">
     <execution />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -30,6 +33,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -63,7 +67,7 @@
       <workItem from="1713634561005" duration="19000" />
       <workItem from="1713634586940" duration="6958000" />
       <workItem from="1713806608720" duration="1772000" />
-      <workItem from="1713812466345" duration="12162000" />
+      <workItem from="1713812466345" duration="12659000" />
     </task>
     <servers />
   </component>
