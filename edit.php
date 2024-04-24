@@ -4,8 +4,8 @@
 /*******w******** 
     
     Name: Tanner Agar
-    Date: 2024-04-19
-    Description: Edit
+    Date: 2024-04-24
+    Description: Editing content
 
 ****************/
 require('connect.php');
@@ -47,14 +47,60 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
         $update_statement->bindValue(':content', $content);
         $update_statement->bindValue(':post_id', $post_id);
 
-        if ($update_statement->execute()) 
+
+        if ($update_statement->execute())
         {
-            // redirect after exec
-            header("Location: post.php?id={$post_id}");
-            exit;
-        }   
+            //get last id of last insert, for processing
+            $post_id = $db->lastInsertId();
+
+            //check if image is set
+            if (isset($_FILES["image"]) && $_FILES["image"]["error"] == UPLOAD_ERR_OK) {
+                //pull image information for image-ness
+                $img_info = getimagesize($_FILES["image"]["tmp_name"]);
+                //check if image-ness is true or not
+                if ($img_info !== FALSE)
+                {
+                    //pass check? set up upload directory for processing
+                    $upload_dir = 'images/';
+                    //assign target file to upload directory, concatenate with image path
+                    $target_file = $upload_dir . basename($_FILES["image"]["name"]);
+                    //debug
+                    echo $target_file;
+                    //initiate the moving of the uploaded file. param from -> to
+                    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file))
+                    {
+                        //filename var incl. path
+                        $filename = basename($_FILES["image"]["name"]);
+                        //prep query for insertion to image table, incl. placeholder values
+                        $query = 'INSERT INTO images (post_id, filename) VALUES (:post_id, :filename)';
+                        //prepare the query for encoding, return statement
+                        $statement = $db->prepare($query);
+                        //params, placeholder values, actual values
+                        $statement->bindValue(':post_id', $post_id);
+                        $statement->bindValue(':filename', $filename);
+                        $statement->execute();
+                        echo "Success, post created with image";
+                        header("Location: index.php");
+                        exit();
+                    } else {
+                        //moving failed
+                        echo "Error with moving file to images.";
+                    }
+                } else {
+                    //image-ness fail
+                    echo "Invalid file not an image.";
+                }
+            } else {
+                //allow posts to be created without image
+                echo "Post created without image.";
+                header("Location: index.php");
+                exit();
+            }
+        } else {
+            // other error
+            echo "Error in the creation of the post.";
+        }
     }
-}
 ?>
 
 <!DOCTYPE html>
@@ -81,13 +127,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
         </div>
     </div>
 <fieldset class="edit-new-content">
-    <legend class="edit-new-header">Edit Post</legend>
+    <legend class="edit-new-header">Edit Content</legend>
     <form action="" method="post" enctype="multipart/form-data">
         <?php if (isset($error_message)) : ?>
             <p><?php echo $error_message; ?></p>
         <?php endif; ?>
 
-        <label for="title">Title:</label><br>
+        <label for="title">Change Title:</label><br>
         <input type="text" id="title" name="title" value="<?php echo $post['title']; ?>" class="title-input" size="50"><br><br>
         <div class="controls">
             <label for="image" class="upload-btn">
@@ -106,6 +152,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
         <input type="submit" value="Delete">
     </form>
 </fieldset>
+    <hr class="divider">
 </div>
     
 
