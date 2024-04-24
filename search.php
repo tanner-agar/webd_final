@@ -48,19 +48,22 @@ if(isset($_GET['keyword'])) {
             <input type="text" name="keyword" placeholder="Search..." value="<?php echo isset($_GET['keyword']) ? htmlspecialchars($_GET['keyword']) : ''; ?>">
             <input type="submit" value="Search">
         </form>
-    </div>
 
-    <div class="search-results">
+    </div>
         <!-- check if search results exist, and count of elements is greater than 0 -->
         <?php if(isset($searchResults) && count($searchResults) > 0): ?>
-            <ul>
-                <div class="cms-container">
-                <!--- loop over results to display --->
-                <?php foreach($searchResults as $result): ?>
-                <!--- echo the result's titles, post_id --->
-                    <li><a href="post.php?id=<?php echo $result['post_id']; ?>"><?php echo $result['title']; ?></a></li>
+                <div class="cms-post">
+                    <?php foreach($searchResults as $result): ?>
+                        <div class="cms-card">
+                            <h1 class="cms-head"><?php echo $result ['title']; ?></h1>
+                                <h4 class="created-header">Created on: </h4>
+                                <p class="date_created"><?php echo $result['date_created']; ?></p>
+                                <div class="card-cms">
+                                <p class="trunc-card"><?php echo $result['content']; ?></p>
+                                </div>
+                                <p class="edit-post"><a href="edit.php?id=<?php echo htmlspecialchars($result['post_id']); ?>">Edit</a></p>
+                    <a href="post.php?id=<?php echo $result['post_id']; ?>"><?php echo $result['title']; ?></a>
                 <?php endforeach; ?>
-            </ul>
         </div>
         <!-- account for no results -->
         <?php elseif(isset($_GET['keyword'])): ?>
