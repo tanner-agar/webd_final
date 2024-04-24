@@ -23,25 +23,29 @@
     margin: 20px 0;
 }
 .container {
-display: flex;
-flex-direction: column;
-align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-
+/* card grid begin */
 .cms-container {
+    display:grid;
+    grid-template-columns:repeat(2, 1fr); /* enforce column struct. */
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ccc;
 }
-
+/* hexes for design: 000000 black, #14213d muted blue, #fca311 warm orange, #e5e5e5 light gray, #ffffff white */
 .cms-post {
+    background-color: #e5e5e5;
     margin-bottom: 20px;
 }
 
 .cms-head {
-    font-size: 24px;
+    font-size: 32px;
     margin-bottom: 10px;
+    color: #14213d;
 }
 
 .timestamp {

@@ -42,7 +42,7 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
-    <title>Welcome to my Blog!</title>
+    <title>Shareitee: Non-Profit Resource and Discussion</title>
 </head>
 <body>
 <!-- search bar/form -->
@@ -56,7 +56,7 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
 <div class="container">
 
     <div class="header">
-        <h1>Charitify!</h1>
+        <h1>Shareitee: Everything Resource for Non-Profits</h1>
         <p>Explore the latest charities, rate, and other insights.</p>
     </div>
 
@@ -84,14 +84,14 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
             <?php endif;?>
 
 
-        <div class="card-content">
+        <div class="card-cms">
             <!--truncate for 500 characters. card consistency.-->
             <?php
                 $content = $post['content'];
                 $truncated = false;
                 if (strlen($content) > 500)
                 {
-                    $content = substr ($content, 0, 200) . '...';
+                    $content = substr ($content, 0, 500) . '...';
                     $truncated = true;
                 }
             ?>
