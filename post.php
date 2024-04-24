@@ -44,43 +44,6 @@ if(isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT))
     <link rel="stylesheet" href="main.css">
     <title><?php echo htmlspecialchars($post['title']); ?></title>
     <style>
-body {
-    font-family: Arial, sans-serif;
-}
-
-.post {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
-    max-width: 700px; 
-    overflow: hidden;
-    text-overflow: ellipsis; 
-    white-space: normal; 
-    word-wrap: break-word; 
-}
-
-.title {
-    font-size: 28px;
-    margin-bottom: 10px;
-}
-
-.timestamp {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 10px;
-}
-
-.content {
-    white-space: pre-line; /* Preserve line breaks */
-    margin-bottom: 20px;
-}
-
-.edit-link {
-    text-align: center;
-}
-
 .edit-link a {
     color: blue;
     text-decoration: none;
@@ -92,20 +55,26 @@ body {
     </style>
 </head>
 <body>
-
-<div class="post">
-    <?php if (isset($post) && !empty($post)):?>
-            <h1 class="title"><?php echo htmlspecialchars($post['title']); ?></h1>
-            <p class="timestamp"><?php echo date('F j, Y, g:i a', strtotime($post['date_created'])); ?></p>
-            <p class="timestamp">Last Updated: <?php echo date('F j, Y, g:i a', strtotime($post['updated_at'])); ?></p>
-            <?php if ($image) echo '<img src="images/' . $image . '" alt="Post Image"><br>'; else echo ''?>
-            <p class="content"><?php echo htmlspecialchars($post['content']); ?></p>
-            <p class="edit-link"><a href="edit.php?id=<?php echo $post['post_id']; ?>">Edit</a></p>
-    <?php else: ?>
-            <p>Error: Post not found.</p>
-    <?php endif; ?>
-
+<div class="index-container">
+    <div class="top-bar">
+        <p class="sort"><a href="content.php">Table of Contents</a></p>
+        <p class="sort"><a href="index.php">Index</a></p>
     </div>
+        <div class="post-cms">
+            <?php if (isset($post) && !empty($post)):?>
+                    <h1 class="title-large"><?php echo htmlspecialchars($post['title']); ?></h1>
+                    <p class="date-large"><?php echo date('F j, Y, g:i a', strtotime($post['date_created'])); ?></p>
+                    <p class="updated-large">Last Updated: <?php echo date('F j, Y, g:i a', strtotime($post['updated_at'])); ?></p>
+                <hr class="nav-divider">
+                    <?php if ($image) echo '<img src="images/' . $image . '" alt="Post Image"><br>'; else echo ''?>
+                    <p class="content-large"><?php echo htmlspecialchars($post['content']); ?></p>
+                    <p class="edit-link-large"><a href="edit.php?id=<?php echo $post['post_id']; ?>">Edit</a></p>
+            <?php else: ?>
+                    <p>Error: Post not found.</p>
+            <?php endif; ?>
 
+        </div>
+        <hr class="divider">
+</div>
 </body>
 </html>

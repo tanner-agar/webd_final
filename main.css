@@ -8,7 +8,53 @@
 
 ****************/
 
-/* fieldset for new post */
+
+/* post php */
+.title-large {
+    font-size: 42px;
+    margin-bottom: 22px;
+    padding-left:50px;
+    padding-bottom:0px;
+}
+
+.date-large {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+    margin-left:50px;
+}
+
+.updated-large {
+    margin-left:50px;
+}
+
+.post-cms img {
+    margin: 16px;
+    padding:19px;
+}
+
+.content-large
+{
+    padding:50px;
+}
+
+.edit-link-large{
+    margin-top:150px;
+    margin-left:50px;
+    margin-bottom:50px;
+}
+
+
+
+
+/* fieldset for new/edit post */
+
+#content {
+    border: 2px solid #14213d;
+    box-shadow: 0px 2px 15px rgba(0,0,0,0.2);
+    margin: 25px 25px;
+}
+
 
 .edit-new-content {
 border-radius:4px;
@@ -17,8 +63,40 @@ border-radius:4px;
     border-left: 8px solid #ffe3b7;
     border-right: 8px solid #ffe3b7;
     padding-bottom:20px;
-    margin-bottom:20px;
+    margin-bottom:45px;
 }
+
+.upload-btn {
+    display: block;
+    background-color: #ecf1ff;
+    border-top: 4px solid #ecf1ff;
+    border-bottom: 4px solid #ccd9ff;
+    border-left: 4px solid #ecf1ff;
+    border-right: 4px solid #ecf1ff;
+    border-radius: 1px;
+    cursor: pointer;
+}
+
+.upload-btn:hover
+{
+    color:#14213d;
+    outline:1px solid black;
+}
+
+.upload-btn::after{
+    content: 'Upload an image';
+}
+
+.upload-btn img {
+    width: 25px;
+    height: 25px;
+    color: #ecf1ff;
+}
+
+
+#image {
+}
+
 
 .edit-new-header
 {
@@ -26,10 +104,28 @@ border-radius:4px;
     padding: 50px 0;
     text-align: center;
     z-index:4;
-    float:start;
 
 }
 
+.controls
+{
+    justify-content: space-around;
+    display:flex;
+}
+
+#image
+{
+    border-radius:5px;
+    background-color: #fca311;
+    color: #14213d;
+}
+
+.controls input[type="image"]
+{
+    border-radius:10px;
+    background-color:#ecf1ff;
+    color: #ecf1ff;
+}
 
 
 /* search form */
@@ -278,16 +374,6 @@ body {
     word-wrap: break-word; 
 }
 
-.title {
-    font-size: 28px;
-    margin-bottom: 10px;
-}
-
-.timestamp {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 10px;
-}
 
 .content {
     white-space: pre-line; /* Preserve line breaks */

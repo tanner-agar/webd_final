@@ -87,7 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
-    <title>New Post</title>
+    <title>New Content</title>
 </head>
 <body>
 
@@ -104,17 +104,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             <label for="title">Add a Title:</label><br>
             <input type="text" id="title" name="title" class="title-input" size="50"><br><br>
         <div class="controls">
-            <label for="image">Select image to upload:</label>
-            <input type="file" name="image" id="image">
+            <label for="image" class="upload-btn">
+                <img src="upload.svg" alt="Upload">
+            </label>
+            <input type="file" src="upload.svg" name="image" id="image">
         </div>
-        <label for="content">''</label><br>
+        <label for="content"></label><br>
         <textarea id="content" name="content" class="cms-post" rows="10" cols="50"></textarea><br><br>
         
         <input type="submit" value="Submit" class="submit-button">
     </form>
 
 </fieldset>
+    <hr class="divider">
 </div>
+
 
     
 </body>
