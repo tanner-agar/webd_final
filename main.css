@@ -28,18 +28,18 @@ flex-direction: column;
 align-items: center;
 }
 
-.blog-container {
+.cms-container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ccc;
 }
 
-.blog-post {
+.cms-post {
     margin-bottom: 20px;
 }
 
-.blog-head {
+.cms-head {
     font-size: 24px;
     margin-bottom: 10px;
 }
@@ -49,7 +49,7 @@ align-items: center;
     margin-bottom: 10px;
 }
 
-.trunc-para {
+.trunc-card {
     margin-bottom: 10px;
     color: rgb(4, 0, 255);
     max-width: 700px; 

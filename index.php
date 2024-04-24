@@ -45,20 +45,7 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
     <title>Welcome to my Blog!</title>
 </head>
 <body>
-    <!-- Remember that alternative syntax is good and html inside php is bad -->
-   <!--     
-    //Title of Post
-    //Content of Post 
-    //Date/Timestamp when Post was saved - use TIMESTAMP datatype in MySQL
-    
-    //Perms.
-    //Unauth: view homepage: lists title, date/timp stamp, and excerpt of most recent 5.
-    //Click title and "Read Full Post" links to view full blog Post
-
-    //Authed: Post a new blog entry using HTML form
-    //Edit any of existing post using HTML form
-    //Delete any of the existing posts -->
-    <!-- Search form -->
+<!-- search bar/form -->
     <div class="search-form">
         <form action="search.php" method="GET">
             <input type="text" name="keyword" placeholder="Search...">
@@ -71,7 +58,7 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
             <p>Explore the latest charities, rate, and other insights.</p>
     </div>
     <div><a href="content.php">Table of Contents</a></div>
-    <div class="blog-container">
+    <div class="cms-container-container">
     <p class="new-post"><a href="new.php">New Post</p></a>
         <p>
             Sort by:
@@ -79,20 +66,20 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
             <a href="?sort=time">Time</a>
             <a href="?sort=updated">Last Updated</a>
         </p>
-    <!-- Reverse Chronology -->
+        <!-- implementing cards -->
     <?php foreach ($posts as $post): ?>
-    <div class="blog-post">
-
+    <div class="cms-post">
+    <div class="cms-card">
         <!-- Display: title, Timestamp, and content. -->
-        <h1 class="blog-head"><?php echo $post['title']; ?></h1>
-        <p class="timestamp"><?php echo $post['date_created'];?></p>
+        <h1 class="cms-head"><?php echo $post['title']; ?></h1>
+        <p class="date-created"><?php echo $post['date_created'];?></p>
         <?php if ($post['updated_at']): ?>
-            <p class="timestamp">Last Updated:
-        <?php echo $post['updated_at'];?></p>
+            <p class="updated-at">Last Updated:<?php echo $post['updated_at'];?></p>
         <?php endif;?>
 
-        <!--Edit incl. GET parameter to specify post id -->
-        <p class="edit"</p>
+
+        <p class="card-content"</p>
+        <!--truncate for 500 characters. card consistency.-->
         <?php 
             $content = $post['content'];
             $truncated = false;
@@ -102,14 +89,12 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
                 $truncated = true;
             }
         ?>
-        <!--If blog content > 200 char, then trunc to 200 char -->
-        
-        <p class="trunc-para"><?php echo $content; ?><p> 
+        <p class="trunc-card"><?php echo $content; ?><p>
         <!-- trunc-para == true then "Read Full Post" -->
         <?php if ($truncated): ?>
-        <p class="read-more"><a href="post.php?id=<?php echo htmlspecialchars($post['post_id']); ?>">Read Full Post...</a></p>
+        <p class="read-more"><a href="post.php?id=<?php echo htmlspecialchars($post['post_id']); ?>">Continue Reading</a></p>
         <?php endif; ?>
-        <p class="edit-post"><a href="edit.php?id=<?php echo $post['post_id']; ?>">Edit</a></p>
+        <p class="edit-post"><a href="edit.php?id=<?php echo  htmlspecialchars($post['post_id']); ?>">Edit</a></p>
 
 
         </div>
