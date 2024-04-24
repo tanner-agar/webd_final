@@ -114,8 +114,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         <input type="text" id="title" name="title" class="title-input" size="50"><br><br>
         <label for="image">Select image to upload:</label>
         <input type="file" name="image" id="image">
-        <input type="submit" value="Upload Image" name="upload">
-        <label for="content">Content:</label><br>
+        <label for="content">''</label><br>
         <textarea id="content" name="content" class="content-input" rows="10" cols="50"></textarea><br><br> 
         
         <input type="submit" value="Submit" class="submit-button">

@@ -98,7 +98,7 @@ body {
             <h1 class="title"><?php echo htmlspecialchars($post['title']); ?></h1>
             <p class="timestamp"><?php echo date('F j, Y, g:i a', strtotime($post['date_created'])); ?></p>
             <p class="timestamp">Last Updated: <?php echo date('F j, Y, g:i a', strtotime($post['updated_at'])); ?></p>
-            <?php if ($image) echo '<img src="images/' . $image . '" alt="Post Image"><br>'; else echo 'no image'?>
+            <?php if ($image) echo '<img src="images/' . $image . '" alt="Post Image"><br>'; else echo ''?>
             <p class="content"><?php echo htmlspecialchars($post['content']); ?></p>
             <p class="edit-link"><a href="edit.php?id=<?php echo $post['post_id']; ?>">Edit</a></p>
     <?php else: ?>

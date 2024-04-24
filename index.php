@@ -58,6 +58,13 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
     //Authed: Post a new blog entry using HTML form
     //Edit any of existing post using HTML form
     //Delete any of the existing posts -->
+    <!-- Search form -->
+    <div class="search-form">
+        <form action="search.php" method="GET">
+            <input type="text" name="keyword" placeholder="Search...">
+            <input type="submit" value="Search">
+        </form>
+    </div>
 <div class="container">
     <div class="header">
             <h1>Charitify!</h1>
