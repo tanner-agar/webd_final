@@ -76,7 +76,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
         <?php endif; ?>
 
         <label for="title">Title:</label><br>
-        <-- sanitize in html -->
         <input type="text" id="title" name="title" value="<?php echo $post['title']; ?>" class="title-input" size="50"><br><br>
 
         <label for="content">Content:</label><br>
