@@ -67,17 +67,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
     <title>Edit Post - <?php echo htmlspecialchars($post['title']); ?></title>
 </head>
 <body>
-
-<fieldset>
-    <legend>Edit Post</legend>
-    <form action="" method="post">
+<div class="index-container">
+    <div class="top-bar">
+        <div class="search-form">
+            <form action="search.php" method="GET">
+                <label for="keyword">Search by keyword: </label>
+                <input type="text" name="keyword" placeholder="e.g. health">
+                <input type="submit" value="Search">
+            </form>
+            <p class="new-post"><a href="new.php">Create New Post</a>
+            <p class="new-post"><a href="content.php">Table of Contents</a></p>
+            <p class="new-post"><a href="index.php">Index</a></p>
+        </div>
+    </div>
+<fieldset class="edit-new-content">
+    <legend class="edit-new-header">Edit Post</legend>
+    <form action="" method="post" enctype="multipart/form-data">
         <?php if (isset($error_message)) : ?>
             <p><?php echo $error_message; ?></p>
         <?php endif; ?>
 
         <label for="title">Title:</label><br>
         <input type="text" id="title" name="title" value="<?php echo $post['title']; ?>" class="title-input" size="50"><br><br>
-
+        <div class="controls">
+            <label for="image" class="upload-btn">
+                <img src="upload.svg" alt="Upload">
+            </label>
+            <input type="file" src="upload.svg" name="image" id="image">
+        </div>
         <label for="content">Content:</label><br>
         <textarea id="content" name="content" class="content-input" rows="10" cols="50"><?php echo htmlspecialchars($post['content']); ?></textarea><br><br>
 
@@ -89,6 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
         <input type="submit" value="Delete">
     </form>
 </fieldset>
+</div>
     
 
 </body>

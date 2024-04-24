@@ -93,8 +93,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
 <div class="index-container">
     <div class="top-bar">
-        <p class="sort"><a href="content.php">Table of Contents</a></p>
-        <p class="sort"><a href="index.php">Index</a></p>
+        <div class="search-form">
+            <form action="search.php" method="GET">
+                <label for="keyword">Search by keyword: </label>
+                <input type="text" name="keyword" placeholder="e.g. health">
+                <input type="submit" value="Search">
+            </form>
+            <p class="new-post"><a href="new.php">Create New Post</a>
+            <p class="new-post"><a href="content.php">Table of Contents</a></p>
+            <p class="new-post"><a href="index.php">Index</a></p>
+        </div>
     </div>
 <fieldset class="edit-new-content">
     <legend class="edit-new-header">Create new content</legend>
