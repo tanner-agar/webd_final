@@ -71,8 +71,8 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
     <p class="sort">
         <span>Sort by:</span>
         <a href="?sort=title">Title</a>
-        <a href="?sort=time">Time</a>
-        <a href="?sort=updated">Last Updated</a>
+        <a href="?sort=date_created">Time</a>
+        <a href="?sort=updated_at">Last Updated</a>
     </p>
 </div>
 
@@ -101,9 +101,7 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
 
             <p class="trunc-card"><?php echo $content; ?><p>
 
-            <?php if ($truncated): ?>
-            <p class="read-more"><a href="post.php?id=<?php echo htmlspecialchars($post['post_id']); ?>">Continue Reading</a></p>
-            <?php endif; ?>
+            <p class="read-more"><a href="post.php?id=<?php echo htmlspecialchars($post['post_id']); ?>">Comment</a></p>
 
             <?php if ($post['updated_at']): ?>
                 <p class="updated-at">Last Updated: <?php echo $post['updated_at'];?></p>

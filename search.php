@@ -53,18 +53,20 @@ if(isset($_GET['keyword'])) {
         <!-- check if search results exist, and count of elements is greater than 0 -->
         <?php if(isset($searchResults) && count($searchResults) > 0): ?>
                 <div class="cms-post">
+
                     <?php foreach($searchResults as $result): ?>
-                        <div class="cms-card">
+                    <div class="cms-card">
                             <h1 class="cms-head"><?php echo $result ['title']; ?></h1>
                                 <h4 class="created-header">Created on: </h4>
                                 <p class="date_created"><?php echo $result['date_created']; ?></p>
                                 <div class="card-cms">
-                                <p class="trunc-card"><?php echo $result['content']; ?></p>
+                                    <p class="trunc-card"><?php echo $result['content']; ?></p>
+
                                 </div>
-                                <p class="edit-post"><a href="edit.php?id=<?php echo htmlspecialchars($result['post_id']); ?>">Edit</a></p>
-                    <a href="post.php?id=<?php echo $result['post_id']; ?>"><?php echo $result['title']; ?></a>
-                <?php endforeach; ?>
-        </div>
+                        <p class="edit-post"><a href="edit.php?id=<?php echo htmlspecialchars($result['post_id']); ?>">Edit</a></p>
+                </div>
+                    <?php endforeach; ?>
+                </div>
         <!-- account for no results -->
         <?php elseif(isset($_GET['keyword'])): ?>
             <p>No results found for '<?php echo htmlspecialchars($_GET['keyword']); ?>'</p>
