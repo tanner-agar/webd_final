@@ -91,22 +91,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 </head>
 <body>
 
-<fieldset>
-    <legend>New Post</legend>
+<div class="index-container">
+    <div class="top-bar">
+        <p class="sort"><a href="content.php">Table of Contents</a></p>
+        <p class="sort"><a href="index.php">Index</a></p>
+    </div>
+<fieldset class="edit-new-content">
+    <legend class="edit-new-header">Create new content</legend>
     <!--  set encoding type to allow image upload -->
     <form method="post" enctype="multipart/form-data">
-        <label for="title">Title:</label><br>
-        <input type="text" id="title" name="title" class="title-input" size="50"><br><br>
-        <label for="image">Select image to upload:</label>
-        <input type="file" name="image" id="image">
+
+            <label for="title">Add a Title:</label><br>
+            <input type="text" id="title" name="title" class="title-input" size="50"><br><br>
+        <div class="controls">
+            <label for="image">Select image to upload:</label>
+            <input type="file" name="image" id="image">
+        </div>
         <label for="content">''</label><br>
-        <textarea id="content" name="content" class="content-input" rows="10" cols="50"></textarea><br><br> 
+        <textarea id="content" name="content" class="cms-post" rows="10" cols="50"></textarea><br><br>
         
         <input type="submit" value="Submit" class="submit-button">
     </form>
 
 </fieldset>
-
+</div>
 
     
 </body>

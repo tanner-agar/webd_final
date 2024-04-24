@@ -4,9 +4,33 @@
     
     Name: Tanner Agar
     Date: 2024-02-28
-    Description: css for index
+    Description: css for final project
 
 ****************/
+
+/* fieldset for new post */
+
+.edit-new-content {
+border-radius:4px;
+    border-top: 24px solid #ecf1ff;
+    border-bottom: 4px solid #ccd9ff;
+    border-left: 8px solid #ffe3b7;
+    border-right: 8px solid #ffe3b7;
+    padding-bottom:20px;
+    margin-bottom:20px;
+}
+
+.edit-new-header
+{
+    color: #14213d;
+    padding: 50px 0;
+    text-align: center;
+    z-index:4;
+    float:start;
+
+}
+
+
 
 /* search form */
 
@@ -81,8 +105,8 @@
 }
 
 .nav-divider {
-    border-top: 4px solid #fca311;
-    border-bottom: 8px solid #ffe3b7;
+    border-bottom: 4px solid #fca311;
+    border-top: 8px solid #ffe3b7;
     width: 75%;
     margin: 0px 0;
     border-radius:4px;
