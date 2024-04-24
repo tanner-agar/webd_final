@@ -1,5 +1,11 @@
 <?php
+/*******w********
 
+Name: Tanner Agar
+Date: 2024-04-24
+Description: Searching via sql
+
+ ****************/
 //pull db context
 require('connect.php');
 

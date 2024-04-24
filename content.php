@@ -1,5 +1,11 @@
 <?php
+/*******w********
 
+Name: Tanner Agar
+Date: 2024-04-24
+Description: table of contents
+
+ ****************/
 require('connect.php');
 
 $query = "SELECT post_id, title FROM posts";
