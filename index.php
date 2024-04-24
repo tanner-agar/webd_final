@@ -63,6 +63,7 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
         <h1>Shareitee: Everything Resource for Non-Profits</h1>
         <p>Explore the latest charities, rate, and other insights.</p>
     </div>
+    <hr class="divider">
 
 <div class="nav">
 
@@ -75,6 +76,8 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
         <a href="?sort=updated_at">Last Updated</a>
     </p>
 </div>
+
+    <hr class="nav-divider">
 
     <div class="cms-container">
 
@@ -113,7 +116,7 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
 <?php endforeach ?>
     </div>
 </div>
-
+    <hr class="nav-divider">
 
 </body>
 </html>

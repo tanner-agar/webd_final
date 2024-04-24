@@ -41,8 +41,9 @@
 
 .header {
     color: #14213d;
-    padding: 60px 0; /* Adjust padding to increase the header size */
+    padding: 40px 0;
     text-align: center;
+
 }
 
 .header h1 {
@@ -69,6 +70,22 @@
     overflow:hidden;
     margin:0 auto;
     box-shadow: 2px 2px 45px rgba(0, 0, 0, 0.2);
+}
+
+.divider {
+    border: none;
+    border-top: 18px solid #ecf1ff;
+    border-bottom: 4px solid #ccd9ff;
+    width: 100%;
+    margin: 0px 0;
+}
+
+.nav-divider {
+    border-top: 4px solid #fca311;
+    border-bottom: 8px solid #ffe3b7;
+    width: 75%;
+    margin: 0px 0;
+    border-radius:4px;
 }
 
 .top-bar
@@ -135,15 +152,6 @@
 
 
 /* card grid begin */
-/*
-.cms-container {
-    margin: 0 auto;
-    padding: 20px;
-    display:grid;
-    margin-bottom: 50px;
-    border-radius:5px;
-    padding:30px;
-} */
 
 
 .cms-card
