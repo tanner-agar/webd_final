@@ -54,12 +54,14 @@ if(isset($_GET['keyword'])) {
         <!-- check if search results exist, and count of elements is greater than 0 -->
         <?php if(isset($searchResults) && count($searchResults) > 0): ?>
             <ul>
+                <div class="cms-container">
                 <!--- loop over results to display --->
                 <?php foreach($searchResults as $result): ?>
                 <!--- echo the result's titles, post_id --->
                     <li><a href="post.php?id=<?php echo $result['post_id']; ?>"><?php echo $result['title']; ?></a></li>
                 <?php endforeach; ?>
             </ul>
+        </div>
         <!-- account for no results -->
         <?php elseif(isset($_GET['keyword'])): ?>
             <p>No results found for '<?php echo htmlspecialchars($_GET['keyword']); ?>'</p>
