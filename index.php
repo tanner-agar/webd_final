@@ -52,53 +52,61 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
             <input type="submit" value="Search">
         </form>
     </div>
+
 <div class="container">
+
     <div class="header">
-            <h1>Charitify!</h1>
-            <p>Explore the latest charities, rate, and other insights.</p>
+        <h1>Charitify!</h1>
+        <p>Explore the latest charities, rate, and other insights.</p>
     </div>
+
     <div><a href="content.php">Table of Contents</a></div>
+
     <div class="cms-container-container">
-    <p class="new-post"><a href="new.php">New Post</p></a>
-        <p>
-            Sort by:
-            <a href="?sort=title">Title</a>
-            <a href="?sort=time">Time</a>
-            <a href="?sort=updated">Last Updated</a>
-        </p>
+
+        <p class="new-post"><a href="new.php">New Post</p></a>
+            <p>
+                Sort by:
+                <a href="?sort=title">Title</a>
+                <a href="?sort=time">Time</a>
+                <a href="?sort=updated">Last Updated</a>
+            </p>
         <!-- implementing cards -->
-    <?php foreach ($posts as $post): ?>
+<?php foreach ($posts as $post): ?>
     <div class="cms-post">
-    <div class="cms-card">
-        <!-- Display: title, Timestamp, and content. -->
-        <h1 class="cms-head"><?php echo $post['title']; ?></h1>
-        <p class="date-created"><?php echo $post['date_created'];?></p>
-        <?php if ($post['updated_at']): ?>
-            <p class="updated-at">Last Updated:<?php echo $post['updated_at'];?></p>
-        <?php endif;?>
+        <div class="cms-card">
+            <!-- Display: title, Timestamp, and content. -->
+            <h1 class="cms-head"><?php echo $post['title']; ?></h1>
+            <p class="date-created"><?php echo $post['date_created'];?></p>
+
+            <?php if ($post['updated_at']): ?>
+                <p class="updated-at">Last Updated:<?php echo $post['updated_at'];?></p>
+            <?php endif;?>
 
 
-        <p class="card-content"</p>
-        <!--truncate for 500 characters. card consistency.-->
-        <?php 
-            $content = $post['content'];
-            $truncated = false;
-            if (strlen($content) > 500)
-            {
-                $content = substr ($content, 0, 200) . '...';
-                $truncated = true;
-            }
-        ?>
-        <p class="trunc-card"><?php echo $content; ?><p>
-        <!-- trunc-para == true then "Read Full Post" -->
-        <?php if ($truncated): ?>
-        <p class="read-more"><a href="post.php?id=<?php echo htmlspecialchars($post['post_id']); ?>">Continue Reading</a></p>
-        <?php endif; ?>
-        <p class="edit-post"><a href="edit.php?id=<?php echo  htmlspecialchars($post['post_id']); ?>">Edit</a></p>
+        <div class="card-content">
+            <!--truncate for 500 characters. card consistency.-->
+            <?php
+                $content = $post['content'];
+                $truncated = false;
+                if (strlen($content) > 500)
+                {
+                    $content = substr ($content, 0, 200) . '...';
+                    $truncated = true;
+                }
+            ?>
+            </div>
 
+            <p class="trunc-card"><?php echo $content; ?><p>
 
-        </div>
-    <?php endforeach ?>
+            <?php if ($truncated): ?>
+            <p class="read-more"><a href="post.php?id=<?php echo htmlspecialchars($post['post_id']); ?>">Continue Reading</a></p>
+            <?php endif; ?>
+
+            <p class="edit-post"><a href="edit.php?id=<?php echo  htmlspecialchars($post['post_id']); ?>">Edit</a></p>
+
+            </div>
+<?php endforeach ?>
     </div>
 </div>
 
