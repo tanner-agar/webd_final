@@ -7,8 +7,7 @@
 ****************/
 
 .header {
-    background-color: #333;
-    color: #fff;
+    color: #14213d;
     padding: 60px 0; /* Adjust padding to increase the header size */
     text-align: center;
 }
@@ -30,37 +29,67 @@
 /* card grid begin */
 .cms-container {
     display:grid;
-    grid-template-columns:repeat(2, 1fr); /* enforce column struct. */
-    max-width: 800px;
+    grid-template-columns:repeat(3, 1fr); /* enforce column struct. */
+    max-width: 500px;
     margin: 0 auto;
     padding: 20px;
-    border: 1px solid #ccc;
 }
+
+.cms-card
+{
+    padding:20px;
+    border-radius:8px;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    background-color: #e5e5e5;
+    outline: #fca311 solid 1px;
+}
+
+
 /* hexes for design: 000000 black, #14213d muted blue, #fca311 warm orange, #e5e5e5 light gray, #ffffff white */
 .cms-post {
-    background-color: #e5e5e5;
     margin-bottom: 20px;
+    border-radius:5px;
 }
 
 .cms-head {
-    font-size: 32px;
+    display:flex;
+    justify-content: center;
+    font-size: 2rem;
     margin-bottom: 10px;
     color: #14213d;
 }
 
-.timestamp {
+.created-header
+{
+    display:flex;
+    margin-bottom:0px;
+    font-size: .8rem
+}
+
+.date-created {
+    font-size: .9rem;
     color: #666;
+    margin-top:0px;
+}
+
+.updated-at
+{
+    font-size: .9rem;
+    color: #000000;
     margin-bottom: 10px;
+    font-style:italic;
 }
 
 .trunc-card {
-    margin-bottom: 10px;
+    margin-bottom: 50px;
     color: rgb(4, 0, 255);
-    max-width: 700px; 
+    max-width: 700px;
     overflow: hidden;
     text-overflow: ellipsis; 
     white-space: normal; 
-    word-wrap: break-word; 
+    word-wrap: break-word;
+
     
 }
 

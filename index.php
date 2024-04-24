@@ -48,7 +48,8 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
 <!-- search bar/form -->
     <div class="search-form">
         <form action="search.php" method="GET">
-            <input type="text" name="keyword" placeholder="Search...">
+            <label for="keyword">Search by keyword:</label>
+            <input type="text" name="keyword" placeholder="e.g. health">
             <input type="submit" value="Search">
         </form>
     </div>
@@ -64,7 +65,7 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
 
     <div class="cms-container-container">
 
-        <p class="new-post"><a href="new.php">New Post</p></a>
+        <p class="new-post"><a href="new.php">New Post</a></p>
             <p>
                 Sort by:
                 <a href="?sort=title">Title</a>
@@ -77,12 +78,8 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
         <div class="cms-card">
             <!-- Display: title, Timestamp, and content. -->
             <h1 class="cms-head"><?php echo $post['title']; ?></h1>
+            <h4 class="created-header">Created on: </h4>
             <p class="date-created"><?php echo $post['date_created'];?></p>
-
-            <?php if ($post['updated_at']): ?>
-                <p class="updated-at">Last Updated:<?php echo $post['updated_at'];?></p>
-            <?php endif;?>
-
 
         <div class="card-cms">
             <!--truncate for 500 characters. card consistency.-->
@@ -95,7 +92,6 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
                     $truncated = true;
                 }
             ?>
-            </div>
 
             <p class="trunc-card"><?php echo $content; ?><p>
 
@@ -103,8 +99,12 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
             <p class="read-more"><a href="post.php?id=<?php echo htmlspecialchars($post['post_id']); ?>">Continue Reading</a></p>
             <?php endif; ?>
 
-            <p class="edit-post"><a href="edit.php?id=<?php echo  htmlspecialchars($post['post_id']); ?>">Edit</a></p>
+            <?php if ($post['updated_at']): ?>
+                <p class="updated-at">Last Updated: <?php echo $post['updated_at'];?></p>
+            <?php endif;?>
 
+            <p class="edit-post"><a href="edit.php?id=<?php echo  htmlspecialchars($post['post_id']); ?>">Edit</a></p>
+        </div>
             </div>
 <?php endforeach ?>
     </div>
