@@ -1,10 +1,43 @@
-/*******w******** 
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Inter&family=Pinyon+Script&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+/*******w********
     
     Name: Tanner Agar
     Date: 2024-02-28
     Description: css for index
 
 ****************/
+
+/* search form */
+
+.search-container
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+    outline: 1px #14213d;
+    max-width:1200px;
+    border-radius:50px;
+    overflow:hidden;
+    margin:0 auto;
+    box-shadow: 2px 2px 45px rgba(0, 0, 0, 0.2);
+}
+
+.search-header
+{
+    -webkit-text-stroke: 1px #fca311;
+    font-size: 36px;
+    color: #14213d;
+}
+
+
+/* index stylings */
+
 
 .header {
     color: #14213d;
@@ -21,39 +54,125 @@
     font-size: 18px;
     margin: 20px 0;
 }
-.container {
+.index-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+    outline: 1px #14213d;
+    max-width:1500px;
+    border-radius:50px;
+    overflow:hidden;
+    margin:0 auto;
+    box-shadow: 2px 2px 45px rgba(0, 0, 0, 0.2);
 }
+
+.top-bar
+{
+    background-color: #fca311;
+    width:100%;
+    justify-content: center;
+    display:flex;
+    flex-direction: row;
+    overflow:hidden;
+    border-radius:14px;
+    outline: 16px solid #ffe3b7;
+
+}
+
+.search-form
+{
+    display: flex;
+    justify-content: space-evenly;
+    color: black;
+    width: 800px;
+    flex-direction: row;
+    align-items:center;
+}
+
+.search-form input[type="text"] {
+    border-radius:5px;
+    border-color: #14213d;
+    width: 250px;
+    height: 20px;
+    font-size: 16px;
+    margin-left: 5px;
+    margin-right: 10px;
+}
+
+.search-form input[type="submit"] {
+    border-radius:4px;
+    height: 24px;
+    width: 64px;
+}
+
+.table-content-new
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin:50px;
+}
+
+.nav {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sort {
+    display:flex;
+    justify-content: space-evenly;
+}
+
+.sort a {
+    margin-left: 20px;
+}
+
+
 /* card grid begin */
+/*
 .cms-container {
-    display:grid;
-    grid-template-columns:repeat(3, 1fr); /* enforce column struct. */
-    max-width: 500px;
     margin: 0 auto;
     padding: 20px;
-}
+    display:grid;
+    margin-bottom: 50px;
+    border-radius:5px;
+    padding:30px;
+} */
+
 
 .cms-card
 {
+    display:grid;
     padding:20px;
+    max-width:800px;
     border-radius:8px;
     justify-content: space-around;
     margin-bottom: 20px;
     background-color: #e5e5e5;
-    outline: #fca311 solid 1px;
+    outline: #fca311 groove 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
 }
 
 
 /* hexes for design: 000000 black, #14213d muted blue, #fca311 warm orange, #e5e5e5 light gray, #ffffff white */
 .cms-post {
-    margin-bottom: 20px;
-    border-radius:5px;
+    gap:64px;
+    display:grid;
+    grid-template-columns:repeat(2, 1fr); /* enforce column struct. */
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 50px;
 }
 
 .cms-head {
     display:flex;
+    text-decoration-style:wavy;
     justify-content: center;
     font-size: 2rem;
     margin-bottom: 10px;
@@ -75,6 +194,8 @@
 
 .updated-at
 {
+    display:flex;
+    justify-content: end;
     font-size: .9rem;
     color: #000000;
     margin-bottom: 10px;
@@ -83,24 +204,24 @@
 
 .trunc-card {
     margin-bottom: 50px;
-    color: rgb(4, 0, 255);
-    max-width: 700px;
+    color: #14213d;
+    max-width: 500px;
     overflow: hidden;
     text-overflow: ellipsis; 
     white-space: normal; 
     word-wrap: break-word;
-
-    
 }
 
 .read-more a {
-    color: rgb(255, 0, 0);
-    text-decoration: none;
+    color: #14213d;
+    accent-color: auto;
+    text-decoration: underline;
 }
 
-.new-post {
-    margin-top: 20px;
+.new-post a {
+    color:#14213d;
 }
+
 
 body {
     font-family: Arial, sans-serif;

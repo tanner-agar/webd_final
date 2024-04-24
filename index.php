@@ -46,35 +46,41 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
 <!-- search bar/form -->
-    <div class="search-form">
-        <form action="search.php" method="GET">
-            <label for="keyword">Search by keyword:</label>
-            <input type="text" name="keyword" placeholder="e.g. health">
-            <input type="submit" value="Search">
-        </form>
-    </div>
 
-<div class="container">
+<div class="index-container">
+    <div class="top-bar">
+        <div class="search-form">
+            <form action="search.php" method="GET">
+                <label for="keyword">Search by keyword: </label>
+                <input type="text" name="keyword" placeholder="e.g. health">
+                <input type="submit" value="Search">
+            </form>
+            <p class="new-post"><a href="new.php">Create New Post</a>
+        </div>
+   </div>
 
     <div class="header">
         <h1>Shareitee: Everything Resource for Non-Profits</h1>
         <p>Explore the latest charities, rate, and other insights.</p>
     </div>
 
-    <div><a href="content.php">Table of Contents</a></div>
+<div class="nav">
 
-    <div class="cms-container-container">
+    <p class="table-content"><a href="content.php">Table of Contents</a></p>
 
-        <p class="new-post"><a href="new.php">New Post</a></p>
-            <p>
-                Sort by:
-                <a href="?sort=title">Title</a>
-                <a href="?sort=time">Time</a>
-                <a href="?sort=updated">Last Updated</a>
-            </p>
+    <p class="sort">
+        <span>Sort by:</span>
+        <a href="?sort=title">Title</a>
+        <a href="?sort=time">Time</a>
+        <a href="?sort=updated">Last Updated</a>
+    </p>
+</div>
+
+    <div class="cms-container">
+
         <!-- implementing cards -->
-<?php foreach ($posts as $post): ?>
     <div class="cms-post">
+        <?php foreach ($posts as $post): ?>
         <div class="cms-card">
             <!-- Display: title, Timestamp, and content. -->
             <h1 class="cms-head"><?php echo $post['title']; ?></h1>
