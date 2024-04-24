@@ -96,7 +96,7 @@ $posts = $result->fetchAll(PDO::FETCH_ASSOC);
         <?php 
             $content = $post['content'];
             $truncated = false;
-            if (strlen($content) > 200)
+            if (strlen($content) > 500)
             {
                 $content = substr ($content, 0, 200) . '...';
                 $truncated = true;
